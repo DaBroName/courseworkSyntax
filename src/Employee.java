@@ -65,4 +65,9 @@ public class Employee {
         return "ID: " + id + "Сотрудник: " + fullName + ", Отдел: " + department + ", Зарплата: " + salary;
     }
 
+    // метод вывода краткой информации
+    public void printShortInfo() {
+        System.out.println("Сотрудник: " + fullName + ", Зарплата: " + salary);
+    }
+
 }
