@@ -16,6 +16,32 @@ public class Employee {
         this.salary = salary;
     }
 
+    // геттеры для получения
+    public int getId() {
+        return id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public int getDepartment() {
+        return department;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    // сеттеры для изменения отдела и зарплаты
+    public void setDepartment(int department) {
+        this.department = department;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
     // метод для вывода информации о сотруднике
     @Override
     public String toString() {
