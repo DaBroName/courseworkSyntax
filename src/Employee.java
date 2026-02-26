@@ -42,6 +42,23 @@ public class Employee {
         this.salary = salary;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        // проверка на идентичность ссылок
+        if (this == o) return true;
+
+        // проверка на null (отсутсвие обьекта) и соответствие типов
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        // приведение типа к нужному классу Employee
+        Employee employee = (Employee) o;
+
+        // сравниваем зарплату
+        return salary == employee.salary;
+    }
+
     // метод для вывода информации о сотруднике
     @Override
     public String toString() {
