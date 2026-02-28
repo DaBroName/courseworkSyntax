@@ -15,5 +15,21 @@ public class EmployeeBook {
         }
     }
 
+    // ищем сумму всех зарплат, идущих в массиве до первого null. Далее делим ее на количество
+    public int calculateAverageSalary() {
+        int count = 0;
+        int sum = 0;
+
+        for (Employee emp : employees) {
+            // при встрече null - подсчет прекращается
+            if (emp == null) {
+                break;
+            }
+            // Прибавляем зарплату каждого сотрудника к общей сумме
+            sum += emp.getSalary();
+            count++;
+        }
+        return (sum / count);
+    }
 
 }
