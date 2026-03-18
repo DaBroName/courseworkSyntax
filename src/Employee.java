@@ -1,10 +1,10 @@
 public class Employee {
     // статическая переменная-счетчик
-    private static int counter = 0;
+    private static int counter = 1;
 
     // поля класса
-    private final int id; // ID номер сотрудника, final - не меняется
-    private String fullName; // Ф.И.О.
+    private final int id; // ID номер сотрудника
+    private final String fullName; // Ф.И.О.
     private int department; // отделы от 1 до 5
     private int salary; // зарплата в интервале 50–450
 
@@ -20,24 +20,28 @@ public class Employee {
     public int getId() {
         return id;
     }
-
     public String getFullName() {
         return fullName;
     }
-
     public int getDepartment() {
-        return department;
+        if (department >= 1 && department <= 5) {
+            return department;
+        } else {
+            return 0;
+        }
     }
-
     public int getSalary() {
-        return salary;
+        if (salary >= 50 && salary <= 450) {
+            return salary;
+        } else {
+            return 0;
+        }
     }
 
     // сеттеры для изменения отдела и зарплаты
     public void setDepartment(int department) {
         this.department = department;
     }
-
     public void setSalary(int salary) {
         this.salary = salary;
     }
@@ -46,15 +50,12 @@ public class Employee {
     public boolean equals(Object o) {
         // проверка на идентичность ссылок
         if (this == o) return true;
-
-        // проверка на null (отсутсвие обьекта) и соответствие типов
+        // проверка на null (отсутствие обьекта) и соответствие типов
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
         // приведение типа к нужному классу Employee
         Employee employee = (Employee) o;
-
         // сравниваем зарплату
         return salary == employee.salary;
     }
@@ -62,12 +63,11 @@ public class Employee {
     // метод для вывода информации о сотруднике
     @Override
     public String toString() {
-        return "ID: " + id + "Сотрудник: " + fullName + ", Отдел: " + department + ", Зарплата: " + salary;
+        return "ID:" + id + " Сотрудник: " + fullName + ", Отдел: " + department + ", Зарплата: " + salary;
     }
 
     // метод вывода краткой информации
     public void printShortInfo() {
         System.out.println("Сотрудник: " + fullName + ", Зарплата: " + salary);
     }
-
 }
